@@ -1,0 +1,4 @@
+#   !/bin/sh
+echo
+echo "0.empty list"
+echo "0.end"
