@@ -1,42 +1,99 @@
 package es.upm.dit.isst.iocasasapi.model;
 import java.util.Date;
-import java.lang.String;
 
 import javax.persistence.Id;
-//import javax.validation.constraints.NotEmpty;
 
 public class Reserva{
 
     @Id
-    private int IdReserva;
-    private int IdPuerta;
-    private int IdInquilino;
-    private int IdPropietario;
-    private int IdAdministrador;
-//    @NotEmpty
+    private Long IdReserva;
+    private Long IdPuerta;
+    private Long IdInquilino;
+    private Long IdPropietario;
+    private Long IdAdministrador;
     private Date entrada;
-//    @NotEmpty
     private Date salida;
-//    @NotEmpty
-    private String key;
+    private Long key;
 
+    public Reserva() {
+    }
 
+    public Reserva(Long idReserva, Long idPuerta, Long idInquilino, Long idPropietario, Long idAdministrador,
+            Date entrada, Date salida, Long key) {
+        IdReserva = idReserva;
+        IdPuerta = idPuerta;
+        IdInquilino = idInquilino;
+        IdPropietario = idPropietario;
+        IdAdministrador = idAdministrador;
+        this.entrada = entrada;
+        this.salida = salida;
+        this.key = key;
+    }
+
+    public Long getIdReserva() {
+        return IdReserva;
+    }
+
+    public void setIdReserva(Long idReserva) {
+        IdReserva = idReserva;
+    }
+    public Long getIdPuerta() {
+        return IdPuerta;
+    }
+    public void setIdPuerta(Long idPuerta) {
+        IdPuerta = idPuerta;
+    }
+    public Long getIdInquilino() {
+        return IdInquilino;
+    }
+    public void setIdInquilino(Long idInquilino) {
+        IdInquilino = idInquilino;
+    }
+    public Long getIdPropietario() {
+        return IdPropietario;
+    }
+    public void setIdPropietario(Long idPropietario) {
+        IdPropietario = idPropietario;
+    }
+    public Long getIdAdministrador() {
+        return IdAdministrador;
+    }
+    public void setIdAdministrador(Long idAdministrador) {
+        IdAdministrador = idAdministrador;
+    }
+    public Date getEntrada() {
+        return entrada;
+    }
+    public void setEntrada(Date entrada) {
+        this.entrada = entrada;
+    }
+    public Date getSalida() {
+        return salida;
+    }
+    public void setSalida(Date salida) {
+        this.salida = salida;
+    }
+    public Long getKey() {
+        return key;
+    }
+    public void setKey(Long key) {
+        this.key = key;
+    }
+    
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + IdReserva;
-        result = prime * result + IdPuerta;
-        result = prime * result + IdInquilino;
-        result = prime * result + IdPropietario;
-        result = prime * result + IdAdministrador;
+        result = prime * result + ((IdReserva == null) ? 0 : IdReserva.hashCode());
+        result = prime * result + ((IdPuerta == null) ? 0 : IdPuerta.hashCode());
+        result = prime * result + ((IdInquilino == null) ? 0 : IdInquilino.hashCode());
+        result = prime * result + ((IdPropietario == null) ? 0 : IdPropietario.hashCode());
+        result = prime * result + ((IdAdministrador == null) ? 0 : IdAdministrador.hashCode());
         result = prime * result + ((entrada == null) ? 0 : entrada.hashCode());
         result = prime * result + ((salida == null) ? 0 : salida.hashCode());
         result = prime * result + ((key == null) ? 0 : key.hashCode());
         return result;
     }
-
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -46,15 +103,30 @@ public class Reserva{
         if (getClass() != obj.getClass())
             return false;
         Reserva other = (Reserva) obj;
-        if (IdReserva != other.IdReserva)
+        if (IdReserva == null) {
+            if (other.IdReserva != null)
+                return false;
+        } else if (!IdReserva.equals(other.IdReserva))
             return false;
-        if (IdPuerta != other.IdPuerta)
+        if (IdPuerta == null) {
+            if (other.IdPuerta != null)
+                return false;
+        } else if (!IdPuerta.equals(other.IdPuerta))
             return false;
-        if (IdInquilino != other.IdInquilino)
+        if (IdInquilino == null) {
+            if (other.IdInquilino != null)
+                return false;
+        } else if (!IdInquilino.equals(other.IdInquilino))
             return false;
-        if (IdPropietario != other.IdPropietario)
+        if (IdPropietario == null) {
+            if (other.IdPropietario != null)
+                return false;
+        } else if (!IdPropietario.equals(other.IdPropietario))
             return false;
-        if (IdAdministrador != other.IdAdministrador)
+        if (IdAdministrador == null) {
+            if (other.IdAdministrador != null)
+                return false;
+        } else if (!IdAdministrador.equals(other.IdAdministrador))
             return false;
         if (entrada == null) {
             if (other.entrada != null)
@@ -73,103 +145,5 @@ public class Reserva{
             return false;
         return true;
     }
-
-
-    public int getIdReserva() {
-        return IdReserva;
-    }
-
-
-    public void setIdReserva(int idReserva) {
-        IdReserva = idReserva;
-    }
-
-
-    public int getIdPuerta() {
-        return IdPuerta;
-    }
-
-
-    public void setIdPuerta(int idPuerta) {
-        IdPuerta = idPuerta;
-    }
-
-
-    public int getIdInquilino() {
-        return IdInquilino;
-    }
-
-
-    public void setIdInquilino(int idInquilino) {
-        IdInquilino = idInquilino;
-    }
-
-
-    public int getIdPropietario() {
-        return IdPropietario;
-    }
-
-
-    public void setIdPropietario(int idPropietario) {
-        IdPropietario = idPropietario;
-    }
-
-
-    public int getIdAdministrador() {
-        return IdAdministrador;
-    }
-
-
-    public void setIdAdministrador(int idAdministrador) {
-        IdAdministrador = idAdministrador;
-    }
-
-
-    public Date getEntrada() {
-        return entrada;
-    }
-
-
-    public void setEntrada(Date entrada) {
-        this.entrada = entrada;
-    }
-
-
-    public Date getSalida() {
-        return salida;
-    }
-
-
-    public void setSalida(Date salida) {
-        this.salida = salida;
-    }
-
-
-    public String getKey() {
-        return key;
-    }
-
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-
-    public Reserva(int idReserva, int idPuerta, int idInquilino, int idPropietario, int idAdministrador, Date entrada,
-            Date salida, String key) {
-        IdReserva = idReserva;
-        IdPuerta = idPuerta;
-        IdInquilino = idInquilino;
-        IdPropietario = idPropietario;
-        IdAdministrador = idAdministrador;
-        this.entrada = entrada;
-        this.salida = salida;
-        this.key = key;
-    }
-
-
-    public Reserva(){}
-
-
     
 }
