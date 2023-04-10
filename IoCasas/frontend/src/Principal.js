@@ -8,7 +8,6 @@ function Principal(props){
   const [datos, setDatos] = useState(props.datos);
   // Función para agregar una nueva puerta al array 
   
-
   const handleUsernameClick = () => {
     setShowDropdown(!showDropdown);
   };
@@ -32,9 +31,6 @@ return (
           <Link to="/doorform"><button>Registrar Puerta</button></Link>
         </div>
         <div>
-          <button>Abrir puerta</button>
-        </div>
-        <div>
             <Link to="/adminform"><button>Hacer administrador</button></Link>
         </div>
           <div>
@@ -43,7 +39,7 @@ return (
           <tbody>
           {props.puertas.map((puerta) => (
             <tr key={puerta.id}>
-              <td>{puerta.ubicacion}</td>
+              <td>{puerta.id}</td>
               <td><Link to="/registroform"><button > agregar inquilino</button></Link></td>
             </tr>
           ))}
