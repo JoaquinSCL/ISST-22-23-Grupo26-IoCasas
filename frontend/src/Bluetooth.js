@@ -24,11 +24,23 @@ function Bluetooth({ setDevice, setCharacteristic, setServer, setService }) {
         setDevice(device)
     }
 
-    
+    const sendMessage = async () => {
+        try {
+            if (characteristic) {
+                const message = new TextEncoder().encode('Hola');
+                await characteristic.writeValue(message);
+                alert('Mensaje enviado');
+            } else {
+                alert('No hay una característica válida');
+            }
+        } catch (error) {
+        console.error(error);
+        }
+    }
 
     return (
         <>
-        <button className="bluetooth" onClick={connectToDevice}>CONNECT</button>
+        <button className="bluetooth" onClick={sendMessage}>CONNECT</button>
         </>
     )
 
