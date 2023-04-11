@@ -45,6 +45,7 @@ return (
             <tr key={puerta.id}>
               <td>{puerta.ubicacion}</td>
               <td><Link to="/registroform"><button > agregar inquilino</button></Link></td>
+              <td><Bluetooth><Bluetooth/><td>
             </tr>
           ))}
           </tbody>
