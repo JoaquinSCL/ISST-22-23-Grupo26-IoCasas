@@ -8,7 +8,7 @@ public class Reserva{
     @Id
     private Long IdReserva;
     private Long IdPuerta;
-    private Long IdInquilino;
+    private String emailInquilino;
     private Long IdPropietario;
     private Long IdAdministrador;
     private Date entrada;
@@ -18,17 +18,21 @@ public class Reserva{
     public Reserva() {
     }
 
-    public Reserva(Long idReserva, Long idPuerta, Long idInquilino, Long idPropietario, Long idAdministrador,
+    
+
+    public Reserva(Long idReserva, Long idPuerta, String emailInquilino, Long idPropietario, Long idAdministrador,
             Date entrada, Date salida, Long key) {
         IdReserva = idReserva;
         IdPuerta = idPuerta;
-        IdInquilino = idInquilino;
+        this.emailInquilino = emailInquilino;
         IdPropietario = idPropietario;
         IdAdministrador = idAdministrador;
         this.entrada = entrada;
         this.salida = salida;
         this.key = key;
     }
+
+
 
     public Long getIdReserva() {
         return IdReserva;
@@ -37,56 +41,72 @@ public class Reserva{
     public void setIdReserva(Long idReserva) {
         IdReserva = idReserva;
     }
+
     public Long getIdPuerta() {
         return IdPuerta;
     }
+
     public void setIdPuerta(Long idPuerta) {
         IdPuerta = idPuerta;
     }
-    public Long getIdInquilino() {
-        return IdInquilino;
+
+    public String getEmailInquilino() {
+        return emailInquilino;
     }
-    public void setIdInquilino(Long idInquilino) {
-        IdInquilino = idInquilino;
+
+    public void setEmailInquilino(String emailInquilino) {
+        this.emailInquilino = emailInquilino;
     }
+
     public Long getIdPropietario() {
         return IdPropietario;
     }
+
     public void setIdPropietario(Long idPropietario) {
         IdPropietario = idPropietario;
     }
+
     public Long getIdAdministrador() {
         return IdAdministrador;
     }
+
     public void setIdAdministrador(Long idAdministrador) {
         IdAdministrador = idAdministrador;
     }
+
     public Date getEntrada() {
         return entrada;
     }
+
     public void setEntrada(Date entrada) {
         this.entrada = entrada;
     }
+
     public Date getSalida() {
         return salida;
     }
+
     public void setSalida(Date salida) {
         this.salida = salida;
     }
+
     public Long getKey() {
         return key;
     }
+
     public void setKey(Long key) {
         this.key = key;
     }
-    
+
+
+
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((IdReserva == null) ? 0 : IdReserva.hashCode());
         result = prime * result + ((IdPuerta == null) ? 0 : IdPuerta.hashCode());
-        result = prime * result + ((IdInquilino == null) ? 0 : IdInquilino.hashCode());
+        result = prime * result + ((emailInquilino == null) ? 0 : emailInquilino.hashCode());
         result = prime * result + ((IdPropietario == null) ? 0 : IdPropietario.hashCode());
         result = prime * result + ((IdAdministrador == null) ? 0 : IdAdministrador.hashCode());
         result = prime * result + ((entrada == null) ? 0 : entrada.hashCode());
@@ -94,6 +114,9 @@ public class Reserva{
         result = prime * result + ((key == null) ? 0 : key.hashCode());
         return result;
     }
+
+
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -113,10 +136,10 @@ public class Reserva{
                 return false;
         } else if (!IdPuerta.equals(other.IdPuerta))
             return false;
-        if (IdInquilino == null) {
-            if (other.IdInquilino != null)
+        if (emailInquilino == null) {
+            if (other.emailInquilino != null)
                 return false;
-        } else if (!IdInquilino.equals(other.IdInquilino))
+        } else if (!emailInquilino.equals(other.emailInquilino))
             return false;
         if (IdPropietario == null) {
             if (other.IdPropietario != null)
@@ -145,5 +168,14 @@ public class Reserva{
             return false;
         return true;
     }
+
+
+
+    @Override
+    public String toString() {
+        return "Reserva [emailInquilino=" + emailInquilino + "]";
+    }
+
+    
     
 }

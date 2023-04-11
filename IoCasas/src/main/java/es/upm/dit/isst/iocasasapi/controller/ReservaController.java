@@ -47,9 +47,9 @@ public class ReservaController {
         return reserva.get().getKey();
 }
 
-    @GetMapping("/{idInquilino}")
-    public List<Reserva> getReservasPorUsuario(@PathVariable Long idInquilino) {
-        List<Reserva> reservas = reservaRepository.findByIdInquilino(idInquilino);
+    @GetMapping("/{emailInquilino}")
+    public List<Reserva> getReservasPorUsuario(@PathVariable String emailInquilino) {
+        List<Reserva> reservas = reservaRepository.findByemailInquilino(emailInquilino);
 
         if (reservas.isEmpty()) {
             throw new RuntimeException("El usuario no tiene reservas");

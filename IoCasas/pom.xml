@@ -3,8 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>IoCasasapi</artifactId>
-
+    <artifactId>tfgapi1</artifactId>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -18,7 +17,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <version>${spring-boot.version}</version>
             <scope>test</scope>
-        </dependency> 
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -41,7 +40,7 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
             <version>${spring-boot.version}</version>
         </dependency>
-         <dependency>
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
@@ -86,6 +85,7 @@
                         </goals>
                         <configuration>
                             <nodeVersion>${node.version}</nodeVersion>
+                            <npmVersion>${npm.version}</npmVersion>
                             <yarnVersion>${yarn.version}</yarnVersion>
                         </configuration>
                     </execution>
@@ -120,7 +120,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> 
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -131,9 +131,10 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <frontend-maven-plugin.version>1.6</frontend-maven-plugin.version>
-        <node.version>v14.18.0</node.version>
-        <yarn.version>v1.12.1</yarn.version>
+        <frontend-maven-plugin.version>1.10.2</frontend-maven-plugin.version>
+        <node.version>v18.15.0</node.version>
+        <npm.version>9.5.0</npm.version>
+        <yarn.version>v1.22.17</yarn.version>
         <spring-boot.version>2.4.4</spring-boot.version>
     </properties>
 

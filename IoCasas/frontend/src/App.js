@@ -22,7 +22,6 @@ function App() {
     email: "",
     password: "",
     phoneNumber: "",
-    id: "1"
   });
 
   const handleFormSubmit = (nuevosDatos) => {
@@ -67,7 +66,7 @@ function App() {
 
   useEffect(() => {
     if (userId) {
-      fetch(`/${datos.id}`)
+      fetch(`/${datos.email}`)
         .then(response => response.json())
         .then(data => setPuertas(data))
         .catch(error => console.error(error));
