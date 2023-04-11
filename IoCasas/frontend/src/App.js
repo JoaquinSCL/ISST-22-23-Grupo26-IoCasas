@@ -14,14 +14,15 @@ import Formregistro from "./Formregistro.js";
 function App() {
   //INICIO DE SESION / REGISTRO
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [showRegistro, setShowRegistro] = useState(false)
+  const [showRegistro, setShowRegistro] = useState(false);
   const [datos, setDatos] = useState({
     name: "",
     lastName: "",
     username: "",
     email: "",
     password: "",
-    phoneNumber: ""
+    phoneNumber: "",
+    id: "1"
   });
 
   const handleFormSubmit = (nuevosDatos) => {
@@ -31,6 +32,8 @@ function App() {
     setIsLoggedIn(!auxlogin);
     setShowRegistro(!auxRegistrado)
   };
+
+  
 
   const handleLoginform = (nuevosDatos) => {
     setDatos(nuevosDatos);
@@ -61,6 +64,15 @@ function App() {
     let puertasantiguas = puertas
     setPuertas([...puertasantiguas, newpuerta]);  
   };
+
+  useEffect(() => {
+    if (userId) {
+      fetch(`/${datos.id}`)
+        .then(response => response.json())
+        .then(data => setPuertas(data))
+        .catch(error => console.error(error));
+    }
+  }, [userId]);
 
   return(
     <div>
