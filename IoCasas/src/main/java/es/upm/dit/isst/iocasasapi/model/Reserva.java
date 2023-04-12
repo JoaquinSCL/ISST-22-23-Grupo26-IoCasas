@@ -1,16 +1,18 @@
 package es.upm.dit.isst.iocasasapi.model;
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Entity
 public class Reserva{
 
     @Id
-    private Long IdReserva;
-    private Long IdPuerta;
+    private Long idReserva;
+    private Long idPuerta;
     private String emailInquilino;
-    private Long IdPropietario;
-    private Long IdAdministrador;
+    private Long idPropietario;
+    private Long idAdministrador;
     private Date entrada;
     private Date salida;
     private Long key;
@@ -18,15 +20,14 @@ public class Reserva{
     public Reserva() {
     }
 
-    
 
     public Reserva(Long idReserva, Long idPuerta, String emailInquilino, Long idPropietario, Long idAdministrador,
             Date entrada, Date salida, Long key) {
-        IdReserva = idReserva;
-        IdPuerta = idPuerta;
+        this.idReserva = idReserva;
+        this.idPuerta = idPuerta;
         this.emailInquilino = emailInquilino;
-        IdPropietario = idPropietario;
-        IdAdministrador = idAdministrador;
+        this.idPropietario = idPropietario;
+        this.idAdministrador = idAdministrador;
         this.entrada = entrada;
         this.salida = salida;
         this.key = key;
@@ -34,20 +35,20 @@ public class Reserva{
 
 
 
-    public Long getIdReserva() {
-        return IdReserva;
+    public Long getidReserva() {
+        return idReserva;
     }
 
-    public void setIdReserva(Long idReserva) {
-        IdReserva = idReserva;
+    public void setidReserva(Long idReserva) {
+        this.idReserva = idReserva;
     }
 
-    public Long getIdPuerta() {
-        return IdPuerta;
+    public Long getidPuerta() {
+        return idPuerta;
     }
 
-    public void setIdPuerta(Long idPuerta) {
-        IdPuerta = idPuerta;
+    public void setidPuerta(Long idPuerta) {
+        this.idPuerta = idPuerta;
     }
 
     public String getEmailInquilino() {
@@ -58,20 +59,20 @@ public class Reserva{
         this.emailInquilino = emailInquilino;
     }
 
-    public Long getIdPropietario() {
-        return IdPropietario;
+    public Long getidPropietario() {
+        return idPropietario;
     }
 
-    public void setIdPropietario(Long idPropietario) {
-        IdPropietario = idPropietario;
+    public void setidPropietario(Long idPropietario) {
+        this.idPropietario = idPropietario;
     }
 
-    public Long getIdAdministrador() {
-        return IdAdministrador;
+    public Long getidAdministrador() {
+        return idAdministrador;
     }
 
-    public void setIdAdministrador(Long idAdministrador) {
-        IdAdministrador = idAdministrador;
+    public void setidAdministrador(Long idAdministrador) {
+        this.idAdministrador = idAdministrador;
     }
 
     public Date getEntrada() {
@@ -104,11 +105,11 @@ public class Reserva{
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((IdReserva == null) ? 0 : IdReserva.hashCode());
-        result = prime * result + ((IdPuerta == null) ? 0 : IdPuerta.hashCode());
+        result = prime * result + ((idReserva == null) ? 0 : idReserva.hashCode());
+        result = prime * result + ((idPuerta == null) ? 0 : idPuerta.hashCode());
         result = prime * result + ((emailInquilino == null) ? 0 : emailInquilino.hashCode());
-        result = prime * result + ((IdPropietario == null) ? 0 : IdPropietario.hashCode());
-        result = prime * result + ((IdAdministrador == null) ? 0 : IdAdministrador.hashCode());
+        result = prime * result + ((idPropietario == null) ? 0 : idPropietario.hashCode());
+        result = prime * result + ((idAdministrador == null) ? 0 : idAdministrador.hashCode());
         result = prime * result + ((entrada == null) ? 0 : entrada.hashCode());
         result = prime * result + ((salida == null) ? 0 : salida.hashCode());
         result = prime * result + ((key == null) ? 0 : key.hashCode());
@@ -126,30 +127,30 @@ public class Reserva{
         if (getClass() != obj.getClass())
             return false;
         Reserva other = (Reserva) obj;
-        if (IdReserva == null) {
-            if (other.IdReserva != null)
+        if (idReserva == null) {
+            if (other.idReserva != null)
                 return false;
-        } else if (!IdReserva.equals(other.IdReserva))
+        } else if (!idReserva.equals(other.idReserva))
             return false;
-        if (IdPuerta == null) {
-            if (other.IdPuerta != null)
+        if (idPuerta == null) {
+            if (other.idPuerta != null)
                 return false;
-        } else if (!IdPuerta.equals(other.IdPuerta))
+        } else if (!idPuerta.equals(other.idPuerta))
             return false;
         if (emailInquilino == null) {
             if (other.emailInquilino != null)
                 return false;
         } else if (!emailInquilino.equals(other.emailInquilino))
             return false;
-        if (IdPropietario == null) {
-            if (other.IdPropietario != null)
+        if (idPropietario == null) {
+            if (other.idPropietario != null)
                 return false;
-        } else if (!IdPropietario.equals(other.IdPropietario))
+        } else if (!idPropietario.equals(other.idPropietario))
             return false;
-        if (IdAdministrador == null) {
-            if (other.IdAdministrador != null)
+        if (idAdministrador == null) {
+            if (other.idAdministrador != null)
                 return false;
-        } else if (!IdAdministrador.equals(other.IdAdministrador))
+        } else if (!idAdministrador.equals(other.idAdministrador))
             return false;
         if (entrada == null) {
             if (other.entrada != null)
