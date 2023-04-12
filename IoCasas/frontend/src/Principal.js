@@ -34,12 +34,14 @@ return (
             <Link to="/adminform"><button>Hacer administrador</button></Link>
         </div>
           <div>
-        <h3>Lista de puertas</h3>
+        <h3>Lista de reservas</h3>
         <Table>
           <tbody>
-          {props.puertas.map((puerta) => (
-            <tr key={puerta.id}>
-              <td>{puerta.id}</td>
+          {props.reservas.map((reserva) => (
+            <tr key={reserva.idReserva}>
+              <td>{reserva.ididReserva}</td>
+              <td>{reserva.entrada}</td>
+              <td>{reserva.salida}</td>
               <td><Link to="/registroform"><button > agregar inquilino</button></Link></td>
             </tr>
           ))}
