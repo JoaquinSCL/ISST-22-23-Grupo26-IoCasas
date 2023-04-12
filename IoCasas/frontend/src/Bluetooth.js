@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { TextEncoder } from 'util';
 
-function Bluetooth() {
+ function Bluetooth() {
   
   const [device, setDevice] = useState(null);
-
+  
   
   const handleClick = async () => {
     try {
@@ -19,17 +20,21 @@ function Bluetooth() {
   };
 
   const sendMessage = async () => {
-    try {
-        if (characteristic) {
-            const message = new TextEncoder().encode('Hola');
-            await characteristic.writeValue(message);
-            alert('Mensaje enviado');
-        } else {
-            alert('No hay una característica válida');
-        }
-    } catch (error) {
-    console.error(error);
+  const message = new TextEncoder().encode("Hola"); 
+  const  service = await device.gatt.getPrimaryService("custom_service");
+  const characteristic = await service.getCharacteristic("custom_characteristic"); 
+  await characteristic.send(message);
+  try {
+    if (characteristic) {
+        const message = new TextEncoder().encode('Hola');
+        await characteristic.writeValue(message);
+        alert('Mensaje enviado');
+    } else {
+        alert('No hay una característica válida');
     }
+} catch (error) {
+console.error(error);
+}
 }
 
   return (
