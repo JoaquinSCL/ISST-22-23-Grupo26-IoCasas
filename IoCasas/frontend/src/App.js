@@ -10,6 +10,7 @@ import AdminForm from "./AdminForm.js";
 import Formlogin from "./Formlogin";
 import Registro from "./Registro.js";
 import Formregistro from "./Formregistro.js";
+import { useEffect } from "react";
 
 function App() {
   //INICIO DE SESION / REGISTRO
@@ -64,14 +65,26 @@ function App() {
     setPuertas([...puertasantiguas, newpuerta]);  
   };
 
+  // useEffect(() => {
+  //   if (datos.email) {
+  //     fetch(`/reservas/${datos.email}`)
+  //       .then(response => response.json())
+  //       .then(data => setPuertas(data))
+  //       .catch(error => console.error(error));
+  //   }
+  // }, [datos.email]);
+  const [reservas, setReservas] = useState([]);
+
   useEffect(() => {
-    if (userId) {
-      fetch(`/${datos.email}`)
-        .then(response => response.json())
-        .then(data => setPuertas(data))
-        .catch(error => console.error(error));
+    async function fetchReservas() {
+      const response = await fetch(
+        "http://localhost:8080/reservas/ejemplo@email.com"
+      );
+      const data = await response.json();
+      setReservas(data);
     }
-  }, [userId]);
+    fetchReservas();
+  }, []);
 
   return(
     <div>
@@ -79,12 +92,17 @@ function App() {
     <div>
    <Header/>
   <Routes>
-      <Route path="/" element={<Principal puertas={puertas} datos={datos} handleLogout={handleLogout}/>}/>
+      <Route path="/" element={<Principal reservas={reservas} datos={datos} handleLogout={handleLogout}/>}/>
       <Route path="/adminform" element={<AdminForm adminusername={adminusername} onFormSubmit={setAdminusername}  />}/>
       <Route path="/doorform" element={<DoorForm onFormSubmit={agregarPuerta} newpuerta={newpuerta}/>}/>
       <Route path="/registroform" element={<Registro/>}/>
       <Route path="*" element={<NoMatch/>}/>
-    </Routes> 
+    </Routes>  
+    {puertas.map(reserva => (
+        <div key={reserva.id}>
+          <p>{reserva.id}</p>
+        </div>
+      ))}
    </div>
    ) : (
     <div>
