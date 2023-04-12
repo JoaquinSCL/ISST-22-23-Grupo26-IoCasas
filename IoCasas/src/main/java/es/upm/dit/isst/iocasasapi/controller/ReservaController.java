@@ -27,18 +27,15 @@ public class ReservaController {
         return ResponseEntity.ok("Reserva creada exitosamente");
     }
 
-    @GetMapping("/{idReserva}/acceso")
-    public Long getAccescodeLong(@PathVariable Long idReserva, @RequestParam String emailInquilino) {
+    @GetMapping("/api/{idReserva}/acceso")
+    public Long getAccescodeLong(@PathVariable Long idReserva) {
         Optional<Reserva> reserva = reservaRepository.findById(idReserva);
 
         if (!reserva.isPresent()) {
             throw new RuntimeException("Reserva no encontrada");
         }
 
-        // Verificar que el usuario tiene acceso a esta reserva
-        if (!reserva.get().getEmailInquilino().equals(emailInquilino)) {
-            throw new RuntimeException("El usuario no tiene acceso a esta reserva");
-        }
+       
 
         Date fechaActual = new Date();
 

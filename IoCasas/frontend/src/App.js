@@ -98,11 +98,11 @@ function App() {
       <Route path="/registroform" element={<Registro/>}/>
       <Route path="*" element={<NoMatch/>}/>
     </Routes>  
-    {puertas.map(reserva => (
+    {/* {puertas.map(reserva => (
         <div key={reserva.id}>
           <p>{reserva.id}</p>
         </div>
-      ))}
+      ))} */}
    </div>
    ) : (
     <div>

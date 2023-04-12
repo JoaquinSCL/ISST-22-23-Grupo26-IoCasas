@@ -1,0 +1,4 @@
+es\upm\dit\isst\iocasasapi\model\Reserva.class
+es\upm\dit\isst\iocasasapi\controller\ReservaController.class
+es\upm\dit\isst\iocasasapi\SpringBootReactApplication.class
+es\upm\dit\isst\iocasasapi\repository\reservaRepository.class
