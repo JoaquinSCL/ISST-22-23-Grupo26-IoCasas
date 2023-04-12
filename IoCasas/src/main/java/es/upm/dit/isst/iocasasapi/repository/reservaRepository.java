@@ -1,9 +1,11 @@
 package es.upm.dit.isst.iocasasapi.repository;
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
-import es.upm.dit.isst.iocasasapi.model.Reserva;
+import org.springframework.stereotype.Repository;
 
-public interface reservaRepository extends CrudRepository<Reserva, String> {
+import es.upm.dit.isst.iocasasapi.model.Reserva;
+@Repository
+public interface reservaRepository extends CrudRepository<Reserva, Long> {
 
     List<Reserva> findByemailInquilino(String emailInquilino);
     List<Reserva> findByIdPuerta(Long idPuerta);
