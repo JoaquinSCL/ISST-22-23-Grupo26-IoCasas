@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.upm.dit.isst.iocasasapi.model.Reserva;
 import es.upm.dit.isst.iocasasapi.model.Puerta;
+import es.upm.dit.isst.iocasasapi.model.Reserva;
 
 @RestController
 public class ReservaController {
@@ -32,35 +32,23 @@ public class ReservaController {
         return ResponseEntity.ok("Reserva creada exitosamente");
     }
 
-    
-    @GetMapping("/{idReserva}/acceso")
-    public Long getAccescodeLong(@PathVariable Long idReserva, @RequestParam String emailInquilino) {
+    @GetMapping("/api/{idReserva}/acceso")
+    public Long getAccescodeLong(@PathVariable Long idReserva) {
         Optional<Reserva> reserva = reservaRepository.findById(idReserva);
-    
+
         if (!reserva.isPresent()) {
             throw new RuntimeException("Reserva no encontrada");
         }
-    
-        // Verificar que el usuario tiene acceso a esta reserva
-        if (!reserva.get().getEmailInquilino().equals(emailInquilino)) {
-            throw new RuntimeException("El usuario no tiene acceso a esta reserva");
-        }
-    
+
         Date fechaActual = new Date();
-    
+
         if (fechaActual.before(reserva.get().getEntrada()) || fechaActual.after(reserva.get().getSalida())) {
             throw new RuntimeException("La reserva no está activa en este momento");
         }
-    
-        Optional<Puerta> puerta = puertaRepository.findById(reserva.get().getIdPuerta());
-    
-        if (!puerta.isPresent()) {
-            throw new RuntimeException("Puerta no encontrada");
-        }
-    
-        return puerta.get().getKey();
+        Puerta puerta = puertaRepository.findByIdPuerta(reserva.get().getIdPuerta());
+
+        return puerta.getKey();
     }
-    
 
     @GetMapping("/reservas/{emailInquilino}")
     public List<Reserva> getReservasPorUsuario(@PathVariable String emailInquilino) {
@@ -72,7 +60,4 @@ public class ReservaController {
 
         return reservas;
     }
-
-        
-
 }
