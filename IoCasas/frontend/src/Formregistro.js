@@ -20,8 +20,11 @@ function Formregistro(props) {
   return (
     <form onSubmit={handleSubmit}>
       <div>
+        <h1>Usuario</h1>
+      </div>
+      <div>
           <label htmlFor="name">Nombre:</label>
-          <input
+          <input class='inputs'
             type="text"
             id="name"
             name="name"
@@ -31,7 +34,7 @@ function Formregistro(props) {
         </div>
         <div>
           <label htmlFor="lastName">Apellidos:</label>
-          <input
+          <input class='inputs'
             type="text"
             id="lastName"
             name="lastName"
@@ -41,7 +44,7 @@ function Formregistro(props) {
         </div>
         <div>
           <label htmlFor="username">Nombre de usuario:</label>
-          <input
+          <input class='inputs'
             type="text"
             id="username"
             name="username"
@@ -51,7 +54,7 @@ function Formregistro(props) {
         </div>
         <div>
           <label htmlFor="email">Correo electrónico:</label>
-          <input
+          <input class='inputs'
             type="email"
             id="email"
             name="email"
@@ -61,7 +64,7 @@ function Formregistro(props) {
         </div>
         <div>
             <label htmlFor="password">Contraseña:</label>
-            <input 
+            <input class='inputs'
             type="password" 
             name="contrasena" 
             value={datosFormulario.contrasena} 
@@ -69,7 +72,7 @@ function Formregistro(props) {
         </div>
         <div>
           <label htmlFor="phoneNumber">Número de teléfono:</label>
-          <input
+          <input class='inputs'
             type="tel"
             id="phoneNumber"
             name="phoneNumber"
@@ -77,7 +80,7 @@ function Formregistro(props) {
             onChange={handleInputChange}
           />
         </div>
-      <button type="submit" >Registrarme</button>
+      <button class='botonLog' type="submit" >Registrarme</button>
     </form>
   );
 }

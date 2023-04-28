@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import './App.css';
 
 function DoorForm(props) {
   const [datospuerta, setDatospuerta] = useState(props.newpuerta);
@@ -18,10 +19,11 @@ function DoorForm(props) {
   };
 
   return (
-    <div>
-      <div>
+    <div class='formDiv'>
+      <div class="pollo">
         <label htmlFor="id">Numero de registro de puerta:</label>
-        <input
+        <input class="inputs"
+          
           type="text"
           id="id"
           name="id"
@@ -29,9 +31,9 @@ function DoorForm(props) {
           onChange={handleChange}
         />
       </div>
-      <div>
+      <div class="pollo">
         <label htmlFor="ubicacion">Ubicacion:</label>
-        <input
+        <input class="inputs"
           type="text"
           id="ubicacion"
           name="ubicacion"
@@ -39,8 +41,8 @@ function DoorForm(props) {
           onChange={handleChange}
         />
       </div>
-      <button onClick={handleSubmit} type="submit">RegistrarPuerta</button>
-      <Link to="/"><button>Volver</button></Link>
+      <button class="botonLog" onClick={handleSubmit} type="submit">RegistrarPuerta</button>
+      <Link to="/"><button class="botonLog">Volver</button></Link>
     </div>
   );
 }

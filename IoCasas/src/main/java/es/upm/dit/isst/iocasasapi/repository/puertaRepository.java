@@ -7,5 +7,6 @@ import es.upm.dit.isst.iocasasapi.model.Puerta;
 @Repository
 public interface puertaRepository extends CrudRepository<Puerta, Long> {
     Puerta findByIdPuerta(Long idPuerta);
+    List<Puerta> findByEmailPropietario(String emailPropietario);
 }
 

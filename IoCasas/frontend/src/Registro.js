@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import moment from 'moment';
 import 'rc-time-picker/assets/index.css';
 import 'react-datepicker/dist/react-datepicker.css';
+import './App.css';
 
 
 function Registro(){
@@ -34,10 +35,10 @@ const handleFechaChangein = (fecha) => {
     event.preventDefault();
 };
 return(
-    <div>
+    <div class='product-box'>
     <div>
         <label htmlFor="username">Nombre de usuario:</label>
-        <input
+        <input class='inputs'
         type="text"
         id="username"
         name="username"
@@ -46,35 +47,35 @@ return(
           />
         </div>
     <form onSubmit={handleSubmit}>
-      <div>
+      <div class='formDiv'>
         <label>Fecha entrada:</label>
         <DatePicker 
         selected={fechain} 
         onChange={handleFechaChangein} />
       </div>
-      <div>
+      <div class='formDiv'>
         <label>Hora entrada:</label>
         <TimePicker 
         value={horain} 
         onChange={handleHoraChangein} 
         showSecond={false} />
       </div>
-      <div>
+      <div class='formDiv'>
         <label>Fecha salida:</label>
         <DatePicker 
         selected={fechaout} 
         onChange={handleFechaChangeout} />
       </div>
-      <div>
+      <div class='formDiv'>
         <label>Hora salida:</label>
         <TimePicker 
         value={horaout} 
         onChange={handleHoraChangeout} 
         showSecond={false} />
       </div>
-      <button type="submit">Enviar</button>
+      <button class='botonLog' type="submit">Enviar</button>
     </form>
-    <Link to="/"><button>volver</button></Link>
+    <Link to="/"><button class='botonLog'>Volver</button></Link>
     </div>
 )
 }

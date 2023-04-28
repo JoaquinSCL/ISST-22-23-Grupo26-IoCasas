@@ -33,18 +33,18 @@ return (
         <h1>Bienvenido, <a href="#" onClick={handleUsernameClick}>{props.datos.username}</a></h1>
           {showDropdown && (
             <div className="dropdown">
-            <button onClick={props.handleLogout}>Cerrar sesión</button>
-            <button>Cambiar datos</button>
+            <button class='botonLog' onClick={props.handleLogout}>Cerrar sesión</button>
+            <button class='botonLog'>Cambiar datos</button>
             </div>
           )}
       </div>
 
       <main>
         <div>
-          <Link to="/doorform"><button>Registrar Puerta</button></Link>
+          <Link to="/doorform"><button class="botonLog">Registrar Puerta</button></Link>
         </div>
         <div>
-            <Link to="/adminform"><button>Hacer administrador</button></Link>
+            <Link to="/adminform"><button class="botonLog">Hacer administrador</button></Link>
         </div>
           <div>
         <h3>Lista de reservas</h3>
@@ -55,7 +55,7 @@ return (
               <td>{reserva.idReserva}</td>
               <td>{new Date(reserva.entrada).toLocaleString()}</td>
               <td>{new Date(reserva.salida).toLocaleString()}</td>
-              <td><button onClick={() => getAccessCode(reserva.idReserva, props.datos.email)}>Obtener acceso</button>
+              <td><button class='botonLog' onClick={() => getAccessCode(reserva.idReserva, props.datos.email)}>Obtener acceso</button>
               <td><Bluetooth/></td>
               </td>
             </tr>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TextEncoder } from 'util';
+import './App.css';
 
  function Bluetooth() {
   
@@ -38,8 +39,12 @@ console.error(error);
 }
 
   return (
-         <div className="bluetooth-component">
-           <button onClick={handleClick}>Connect</button>
+         <div class='formDiv' className="bluetooth-component">
+          <button class='botonLog' onClick={handleClick}>
+            <img src="../public/BluetoothImg.png" alt="Connect" />
+            <img src="%PUBLIC_URL%/BluetoothImg.png" alt="Descripción de la imagen" />
+
+          </button>
            {device && <p>Connected to {device.name}</p>}
          </div>
        );

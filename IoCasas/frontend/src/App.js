@@ -11,6 +11,7 @@ import Formlogin from "./Formlogin";
 import Registro from "./Registro.js";
 import Formregistro from "./Formregistro.js";
 import { useEffect } from "react";
+import './App.css';
 
 function App() {
   //INICIO DE SESION / REGISTRO
@@ -78,7 +79,7 @@ function App() {
   useEffect(() => {
     async function fetchReservas() {
       const response = await fetch(
-        "http://localhost:8080/reservas/ejemplo@email.com"
+        "http://localhost:8083/reservas/email@example.com"
       );
       const data = await response.json();
       setReservas(data);
