@@ -8,5 +8,7 @@ import es.upm.dit.isst.iocasasapi.model.Reserva;
 public interface reservaRepository extends CrudRepository<Reserva, Long> {
 
     List<Reserva> findByemailInquilino(String emailInquilino);
+    List<Reserva> findByemailAdministrador(String emailAdministrador);
     List<Reserva> findByIdPuerta(Long idPuerta);
+    
 }

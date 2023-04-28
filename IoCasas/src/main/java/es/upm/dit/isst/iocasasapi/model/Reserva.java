@@ -1,182 +1,168 @@
-package es.upm.dit.isst.iocasasapi.model;
-import java.util.Date;
+    package es.upm.dit.isst.iocasasapi.model;
+    import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+    import javax.persistence.Entity;
+    import javax.persistence.Id;
+    import javax.persistence.JoinColumn;
+    import javax.persistence.ManyToOne;
 
-@Entity
-public class Reserva{
+    @Entity
+    public class Reserva{
 
-    @Id
-    private Long idReserva;
-    private Long idPuerta;
-    private String emailInquilino;
-    private Long idPropietario;
-    private Long idAdministrador;
-    private Date entrada;
-    private Date salida;
-    private Long key;
+        @Id
+        private Long idReserva;
+        private Long idPuerta;
+        private String emailInquilino;
+        private String emailPropietario;
+        private String emailAdministrador;
+        private Date entrada;
+        private Date salida;
+        
+        public Reserva() {
+        }
 
-    public Reserva() {
-    }
+        public Reserva(Long idReserva, Long idPuerta, String emailInquilino, String emailPropietario,
+                String emailAdministrador, Date entrada, Date salida) {
+            this.idReserva = idReserva;
+            this.idPuerta = idPuerta;
+            this.emailInquilino = emailInquilino;
+            this.emailPropietario = emailPropietario;
+            this.emailAdministrador = emailAdministrador;
+            this.entrada = entrada;
+            this.salida = salida;
+        }
 
+        public Reserva(Long idReserva, Long idPuerta, String emailInquilino, String emailPropietario, Date entrada,
+                Date salida) {
+            this.idReserva = idReserva;
+            this.idPuerta = idPuerta;
+            this.emailInquilino = emailInquilino;
+            this.emailPropietario = emailPropietario;
+            this.entrada = entrada;
+            this.salida = salida;
+        }
 
-    public Reserva(Long idReserva, Long idPuerta, String emailInquilino, Long idPropietario, Long idAdministrador,
-            Date entrada, Date salida, Long key) {
-        this.idReserva = idReserva;
-        this.idPuerta = idPuerta;
-        this.emailInquilino = emailInquilino;
-        this.idPropietario = idPropietario;
-        this.idAdministrador = idAdministrador;
-        this.entrada = entrada;
-        this.salida = salida;
-        this.key = key;
-    }
+        public Long getIdReserva() {
+            return idReserva;
+        }
 
+        public void setIdReserva(Long idReserva) {
+            this.idReserva = idReserva;
+        }
 
+        public Long getIdPuerta() {
+            return idPuerta;
+        }
 
-    public Long getidReserva() {
-        return idReserva;
-    }
+        public void setIdPuerta(Long idPuerta) {
+            this.idPuerta = idPuerta;
+        }
 
-    public void setidReserva(Long idReserva) {
-        this.idReserva = idReserva;
-    }
+        public String getEmailInquilino() {
+            return emailInquilino;
+        }
 
-    public Long getidPuerta() {
-        return idPuerta;
-    }
+        public void setEmailInquilino(String emailInquilino) {
+            this.emailInquilino = emailInquilino;
+        }
 
-    public void setidPuerta(Long idPuerta) {
-        this.idPuerta = idPuerta;
-    }
+        public String getEmailPropietario() {
+            return emailPropietario;
+        }
 
-    public String getEmailInquilino() {
-        return emailInquilino;
-    }
+        public void setEmailPropietario(String emailPropietario) {
+            this.emailPropietario = emailPropietario;
+        }
 
-    public void setEmailInquilino(String emailInquilino) {
-        this.emailInquilino = emailInquilino;
-    }
+        public String getEmailAdministrador() {
+            return emailAdministrador;
+        }
 
-    public Long getidPropietario() {
-        return idPropietario;
-    }
+        public void setEmailAdministrador(String emailAdministrador) {
+            this.emailAdministrador = emailAdministrador;
+        }
 
-    public void setidPropietario(Long idPropietario) {
-        this.idPropietario = idPropietario;
-    }
+        public Date getEntrada() {
+            return entrada;
+        }
 
-    public Long getidAdministrador() {
-        return idAdministrador;
-    }
+        public void setEntrada(Date entrada) {
+            this.entrada = entrada;
+        }
 
-    public void setidAdministrador(Long idAdministrador) {
-        this.idAdministrador = idAdministrador;
-    }
+        public Date getSalida() {
+            return salida;
+        }
 
-    public Date getEntrada() {
-        return entrada;
-    }
+        public void setSalida(Date salida) {
+            this.salida = salida;
+        }
 
-    public void setEntrada(Date entrada) {
-        this.entrada = entrada;
-    }
+        @Override
+        public int hashCode() {
+            final int prime = 31;
+            int result = 1;
+            result = prime * result + ((idReserva == null) ? 0 : idReserva.hashCode());
+            result = prime * result + ((idPuerta == null) ? 0 : idPuerta.hashCode());
+            result = prime * result + ((emailInquilino == null) ? 0 : emailInquilino.hashCode());
+            result = prime * result + ((emailPropietario == null) ? 0 : emailPropietario.hashCode());
+            result = prime * result + ((emailAdministrador == null) ? 0 : emailAdministrador.hashCode());
+            result = prime * result + ((entrada == null) ? 0 : entrada.hashCode());
+            result = prime * result + ((salida == null) ? 0 : salida.hashCode());
+            return result;
+        }
 
-    public Date getSalida() {
-        return salida;
-    }
-
-    public void setSalida(Date salida) {
-        this.salida = salida;
-    }
-
-    public Long getKey() {
-        return key;
-    }
-
-    public void setKey(Long key) {
-        this.key = key;
-    }
-
-
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((idReserva == null) ? 0 : idReserva.hashCode());
-        result = prime * result + ((idPuerta == null) ? 0 : idPuerta.hashCode());
-        result = prime * result + ((emailInquilino == null) ? 0 : emailInquilino.hashCode());
-        result = prime * result + ((idPropietario == null) ? 0 : idPropietario.hashCode());
-        result = prime * result + ((idAdministrador == null) ? 0 : idAdministrador.hashCode());
-        result = prime * result + ((entrada == null) ? 0 : entrada.hashCode());
-        result = prime * result + ((salida == null) ? 0 : salida.hashCode());
-        result = prime * result + ((key == null) ? 0 : key.hashCode());
-        return result;
-    }
-
-
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj)
+                return true;
+            if (obj == null)
+                return false;
+            if (getClass() != obj.getClass())
+                return false;
+            Reserva other = (Reserva) obj;
+            if (idReserva == null) {
+                if (other.idReserva != null)
+                    return false;
+            } else if (!idReserva.equals(other.idReserva))
+                return false;
+            if (idPuerta == null) {
+                if (other.idPuerta != null)
+                    return false;
+            } else if (!idPuerta.equals(other.idPuerta))
+                return false;
+            if (emailInquilino == null) {
+                if (other.emailInquilino != null)
+                    return false;
+            } else if (!emailInquilino.equals(other.emailInquilino))
+                return false;
+            if (emailPropietario == null) {
+                if (other.emailPropietario != null)
+                    return false;
+            } else if (!emailPropietario.equals(other.emailPropietario))
+                return false;
+            if (emailAdministrador == null) {
+                if (other.emailAdministrador != null)
+                    return false;
+            } else if (!emailAdministrador.equals(other.emailAdministrador))
+                return false;
+            if (entrada == null) {
+                if (other.entrada != null)
+                    return false;
+            } else if (!entrada.equals(other.entrada))
+                return false;
+            if (salida == null) {
+                if (other.salida != null)
+                    return false;
+            } else if (!salida.equals(other.salida))
+                return false;
             return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Reserva other = (Reserva) obj;
-        if (idReserva == null) {
-            if (other.idReserva != null)
-                return false;
-        } else if (!idReserva.equals(other.idReserva))
-            return false;
-        if (idPuerta == null) {
-            if (other.idPuerta != null)
-                return false;
-        } else if (!idPuerta.equals(other.idPuerta))
-            return false;
-        if (emailInquilino == null) {
-            if (other.emailInquilino != null)
-                return false;
-        } else if (!emailInquilino.equals(other.emailInquilino))
-            return false;
-        if (idPropietario == null) {
-            if (other.idPropietario != null)
-                return false;
-        } else if (!idPropietario.equals(other.idPropietario))
-            return false;
-        if (idAdministrador == null) {
-            if (other.idAdministrador != null)
-                return false;
-        } else if (!idAdministrador.equals(other.idAdministrador))
-            return false;
-        if (entrada == null) {
-            if (other.entrada != null)
-                return false;
-        } else if (!entrada.equals(other.entrada))
-            return false;
-        if (salida == null) {
-            if (other.salida != null)
-                return false;
-        } else if (!salida.equals(other.salida))
-            return false;
-        if (key == null) {
-            if (other.key != null)
-                return false;
-        } else if (!key.equals(other.key))
-            return false;
-        return true;
+        }
+
+        @Override
+        public String toString() {
+            return "Reserva [emailInquilino=" + emailInquilino + ", emailPropietario=" + emailPropietario
+                    + ", emailAdministrador=" + emailAdministrador + "]";
+        }
+        
     }
-
-
-
-    @Override
-    public String toString() {
-        return "Reserva [emailInquilino=" + emailInquilino + "]";
-    }
-
-    
-    
-}
