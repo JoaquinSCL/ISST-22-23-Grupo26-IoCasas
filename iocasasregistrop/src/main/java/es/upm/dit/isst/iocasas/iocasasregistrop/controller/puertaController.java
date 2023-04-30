@@ -35,43 +35,35 @@ public class puertaController {
 
         public final String PUERTAGUARDAR_STRING= "http://localhost:8083/newpuerta/";
         public final String PUERTACONTROLAR_STRING= "http://localhost:8083/puerta/";
+        public final String LISTAPUERTAS_STRING= "http://localhost:8083/puertas/";
         public static final String VISTA_LISTA = "lista";
         public static final String VISTA_FORMULARIO = "formulario";
         private RestTemplate restTemplate = new RestTemplate();
-/*         @GetMapping("/")
+         @GetMapping("/")
         public String inicio() {
                 return "redirect:/" + VISTA_LISTA;
         }
-
+        
         @GetMapping("/login")
         public String login() {
                 return "redirect:/" + VISTA_LISTA;
-        } */
+        } 
 
         @GetMapping("/lista/")
         public String lista(Model model, Principal principal) {
                 List<Puerta> lista = new ArrayList<Puerta>();
-                if (principal == null || principal.getName().equals(""))
-                        lista = Arrays.asList(restTemplate.getForEntity(PUERTAMANAGER_STRING, Puerta[].class).getBody());
-                else if (principal.getName().contains("@upm.es"))
-                        lista = Arrays.asList(restTemplate.getForEntity(PUERTAMANAGER_STRING+ "profesor/" + principal.getName(),Puerta[].class).getBody());
-                else if (principal.getName().contains("@alumnos.upm.es")){
-                        try { Puerta Puerta = restTemplate.getForObject(PUERTAMANAGER_STRING+ principal.getName(), Puerta.class);
-                          if (Puerta != null)
-                                lista.add(Puerta);
-                        } catch (Exception e) {}
-                }
+                lista = Arrays.asList(restTemplate.getForEntity(LISTAPUERTAS_STRING+ principal.getName(),Puerta[].class).getBody());
                 model.addAttribute("Puertas", lista);
                 return VISTA_LISTA; //vista que devuelve la informacion
         }
 
-/*         @GetMapping("/crear")
+         @GetMapping("/crear")
         public String crear(Map<String, Object> model) {
                 Puerta Puerta = new Puerta();
                 model.put("Puerta", Puerta);
                 model.put("accion", "guardar");
                 return VISTA_FORMULARIO;
-        } */
+        } 
 
         @PostMapping("/guardar")
         public String guardar(@Validated Puerta Puerta, BindingResult result) {
@@ -89,7 +81,7 @@ public class puertaController {
                 if (principal == null || ! principal.getName().equals(id))
                         return "redirect:/" + VISTA_LISTA;
                 Puerta Puerta = null;
-                try { Puerta = restTemplate.getForObject(PUERTAMANAGER_STRING + id, Puerta.class);
+                try { Puerta = restTemplate.getForObject(PUERTACONTROLAR_STRING + id, Puerta.class);
                 } catch (HttpClientErrorException.NotFound ex) {}
                 model.put("Puerta", Puerta);
                 model.put("accion", "../actualizar");
@@ -101,7 +93,7 @@ public class puertaController {
                 if (result.hasErrors()) {
                         return VISTA_FORMULARIO;
                 }
-                try { restTemplate.put(PUERTAMANAGER_STRING + Puerta.getEmail(),
+                try { restTemplate.put(PUERTACONTROLAR_STRING + Puerta.getIdPuerta(),
                            Puerta, Puerta.class);
                 } catch(Exception e) {}
                 return "redirect:" + VISTA_LISTA;
@@ -112,19 +104,4 @@ public class puertaController {
                 restTemplate.delete(PUERTACONTROLAR_STRING+ id);
                 return "redirect:/" + VISTA_LISTA;
         }
-
-/*       @GetMapping("/aceptar/{id}")
-       public String aceptar(@PathVariable(value = "id") String id, Map<String, Object> model, Principal principal) {
-                if (principal != null) {
-                        try { Puerta Puerta = restTemplate.getForObject(PUERTAMANAGER_STRING + id,
-                                  Puerta.class);
-                                if (Puerta != null
-                                  && principal.getName().equals(Puerta.getTutor())) { 
-                                    restTemplate.postForObject(PUERTAMANAGER_STRING +Puerta.getEmail()+"/incrementa", Puerta, Puerta.class);
-                                    model.put("Puerta", Puerta);
-                                }
-                        } catch (HttpClientErrorException.NotFound ex) { }
-                }
-                return "redirect:/" + VISTA_LISTA;
-        } */
     }

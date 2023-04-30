@@ -40,6 +40,16 @@ public class PuertaController {
         return puertas;
     }
 
+    @GetMapping("/puerta/{idPuerta}")
+    public Puerta getReservasPorUsuario(@PathVariable Long idPuerta) {
+        Puerta puerta = puertaRepository.findByIdPuerta(idPuerta);
+        if (puerta == null) {
+            throw new RuntimeException("El usuario no tiene reservas");
+        }
+        return puerta;
+    }
+
+
     @DeleteMapping("puerta/{id}")
     ResponseEntity<Puerta> delete(@PathVariable Long id) {
       puertaRepository.deleteById(id);
