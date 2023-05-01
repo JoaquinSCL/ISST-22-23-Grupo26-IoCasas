@@ -49,18 +49,24 @@ public class puertaController {
                 return "redirect:/" + VISTA_LISTA;
         } 
 
-        @GetMapping("/lista/")
+        @GetMapping("/lista")
         public String lista(Model model, Principal principal) {
                 List<Puerta> lista = new ArrayList<Puerta>();
-                lista = Arrays.asList(restTemplate.getForEntity(LISTAPUERTAS_STRING+ principal.getName(),Puerta[].class).getBody());
-                model.addAttribute("Puertas", lista);
-                return VISTA_LISTA; //vista que devuelve la informacion
+                if(principal == null || principal.getName().equals("")){
+                        model.addAttribute("puertas", lista);
+                        return VISTA_LISTA;
+                }
+                else{
+                        lista = Arrays.asList(restTemplate.getForEntity(LISTAPUERTAS_STRING+ principal.getName(),Puerta[].class).getBody());
+                        model.addAttribute("puertas", lista);
+                        return VISTA_LISTA; //vista que devuelve la informacion
+                }
         }
 
          @GetMapping("/crear")
         public String crear(Map<String, Object> model) {
                 Puerta Puerta = new Puerta();
-                model.put("Puerta", Puerta);
+                model.put("puerta", Puerta);
                 model.put("accion", "guardar");
                 return VISTA_FORMULARIO;
         } 
@@ -83,7 +89,7 @@ public class puertaController {
                 Puerta Puerta = null;
                 try { Puerta = restTemplate.getForObject(PUERTACONTROLAR_STRING + id, Puerta.class);
                 } catch (HttpClientErrorException.NotFound ex) {}
-                model.put("Puerta", Puerta);
+                model.put("puerta", Puerta);
                 model.put("accion", "../actualizar");
                 return Puerta != null ? VISTA_FORMULARIO : "redirect:/" + VISTA_LISTA;
         }
