@@ -31,13 +31,16 @@ public class PuertaController {
         return ResponseEntity.ok("Reserva creada exitosamente");
     }
 
-    @GetMapping("/puertas/{emailPrpietario}")
+    @GetMapping("/puertas/{emailPropietario}")
     public List<Puerta> getReservasPorUsuario(@PathVariable String emailPropietario) {
         List<Puerta> puertas = puertaRepository.findByEmailPropietario(emailPropietario);
         if (puertas.isEmpty()) {
-            throw new RuntimeException("El usuario no tiene reservas");
+            throw new RuntimeException("El usuario no tiene puertas");
         }
-        return puertas;
+        else{
+            return puertas;
+        }
+        
     }
 
     @GetMapping("/puerta/{idPuerta}")

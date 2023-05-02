@@ -18,22 +18,19 @@
 							<th th:text="#{puertas.puerta.id}"></th>
 							<th th:text="#{puertas.puerta.emailPropietario}"></th>
 							<th th:text="#{puertas.puerta.emailAdministrador}"></th>
-							<th th:text="#{puertas.puerta.ubicacion}"></th>			
+							<th th:text="#{puertas.puerta.ubicacion}"></th>
+							<th>-</th>
+							<th>-</th>			
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="puertas: ${puertas}">
-							<td th:text="${puerta.id}"></td>
+						<tr th:each="puerta: ${puertas}">
+							<td th:text="${puerta.idPuerta}"></td>
 							<td th:text="${puerta.emailPropietario}"></td>
 							<td th:text="${puerta.emailAdministrador}"></td>
 							<td th:text="${puerta.ubicacion}"></td>
-							<!-- <span sec:authorize="isAuthenticated()"> -->
-								<td>
-									<a th:href="@{editar/} + ${puerta.id}" th:text="#{puertas.acciones.editar}" class="btn btn-outline-primary"></a>
-								</td><td>	
-									<a th:href="@{eliminar/} + ${puerta.id}" th:text="#{puertas.acciones.eliminar}" class="btn btn-outline-danger"></a>
-								</td>
-							<!-- </span> -->
+							<td><a th:href="@{editar/} + ${puerta.idPuerta}" th:text="#{puertas.acciones.editar}" class="btn btn-outline-primary"></a></td>
+							<td><a th:href="@{eliminar/} + ${puerta.idPuerta}" th:text="#{puertas.acciones.eliminar}" class="btn btn-outline-danger"></a></td>
 						</tr>
 					</tbody>
 					<tfoot>
@@ -47,5 +44,6 @@
 			</div>
 		</div>
 	</div>
+	<footer th:replace="layouts/base::footer(dark)"></footer>
 </body>
 </html>

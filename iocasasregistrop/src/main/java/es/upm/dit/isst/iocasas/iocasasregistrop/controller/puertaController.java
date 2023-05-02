@@ -57,11 +57,36 @@ public class puertaController {
                         return VISTA_LISTA;
                 }
                 else{
-                        lista = Arrays.asList(restTemplate.getForEntity(LISTAPUERTAS_STRING+ principal.getName(),Puerta[].class).getBody());
+                        try {
+                                lista = Arrays.asList(restTemplate.getForEntity(LISTAPUERTAS_STRING + principal.getName(), Puerta[].class).getBody());
+                            } catch (HttpClientErrorException e) {
+                                if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
+                                    // si se produce un error 404, devolver una lista vacía
+                                    lista = new ArrayList<Puerta>();
+                                } else {
+                                    // si se produce un error diferente, relanzar la excepción
+                                    throw e;
+                                }
+                        }
+                        //lista = Arrays.asList(restTemplate.getForEntity(LISTAPUERTAS_STRING + principal.getName(), Puerta[].class).getBody());
                         model.addAttribute("puertas", lista);
                         return VISTA_LISTA; //vista que devuelve la informacion
                 }
         }
+
+        /* @GetMapping("/lista")
+        public String lista(Model model, Principal principal) {
+                List<Puerta> lista = new ArrayList<Puerta>();
+                if(principal == null || principal.getName().equals("")){
+                        model.addAttribute("puertas", lista);
+                        return VISTA_LISTA;
+                }
+                else{
+                        lista = Arrays.asList(restTemplate.getForEntity(LISTAPUERTAS_STRING+ principal.getName(),Puerta[].class).getBody());
+                        model.addAttribute("puertas", lista);
+                        return VISTA_LISTA; //vista que devuelve la informacion
+                }
+        } */
 
          @GetMapping("/crear")
         public String crear(Map<String, Object> model) {
