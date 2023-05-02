@@ -1,4 +1,4 @@
-        package es.upm.dit.isst.iocasas.iocasasregistrop.config;
+        package es.upm.dit.isst.iocasas.iocasasregistror.config;
 
         import javax.sql.DataSource;
 
@@ -24,6 +24,7 @@
                 http.authorizeHttpRequests()
                     .requestMatchers("/css/**", "/img/**", "/layouts/**", "/").permitAll()
                     .requestMatchers("/lista").hasRole("PROP")
+                    .requestMatchers("/lista").hasRole("ADMIN")
                     .anyRequest().authenticated().and()
                     .formLogin().permitAll().and()
                     .logout().permitAll().and()

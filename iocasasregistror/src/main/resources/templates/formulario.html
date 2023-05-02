@@ -9,13 +9,26 @@
 	<div class="container">
 		<div class="card bg-dark">
 			<div class="card-header">
-				<h3 th:text="${accion} == 'guardar' ? 'Nueva Puerta' : 'Editar Puerta'"></h3>
+				<h3 th:text="${accion} == 'guardar' ? 'Nueva Reserva' : 'Editar Reserva'"></h3>
 				<a th:href="@{logout}" class="btn btn-outline-danger">Log Out</a></td>
 			</div>
 			<div class="card-body">
 				 
-				<form th:action="@{${accion}}" th:object="${puerta}" method="post">
-		
+				<form th:action="@{${accion}}" th:object="${reserva}" method="post">
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">ID Puerta</label>
+						<div class="col-sm-6">
+							<input type="number" th:field="*{idPuerta}" required="${true}">
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('idPuerta')}" th:errors="*{idPuerta}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Email Inquilino</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{emailInquilino}" required="${true}">
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('emailInquilino')}" th:errors="*{emailInquilino}"></small>
+						</div>
+					</div>
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Email Propietario</label>
 						<div class="col-sm-6">
@@ -31,17 +44,17 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Key</label>
+						<label class="col-sm-2 col-form-label">Entrada</label>
 						<div class="col-sm-6">
-							<input type="number" th:field="*{key}" required="${true}">
-							<small class="form-text text-danger" th:if="${#fields.hasErrors('key')}" th:errors="*{key}"></small>
+							<input type="datetime-local" th:field="*{entrada}">
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('entrada')}" th:errors="*{entrada}"></small>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Ubicación</label>
+						<label class="col-sm-2 col-form-label">Salida</label>
 						<div class="col-sm-6">
-							<input type="text" th:field="*{ubicacion}">
-							<small class="form-text text-danger" th:if="${#fields.hasErrors('ubicacion')}" th:errors="*{ubicacion}"></small>
+							<input type="datetime-local" th:field="*{salida}">
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('salida')}" th:errors="*{salida}"></small>
 						</div>
 					</div>
 					<div class="form-group">
