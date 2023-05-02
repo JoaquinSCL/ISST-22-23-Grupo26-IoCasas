@@ -4,39 +4,39 @@
 	<meta charset="UTF-8"/>
 </head>
 <body>
-	<header th:replace="layouts/base::header(dark)"></header>
 
 	<div class="container">
 		<div class="card bg-dark">
 			<div class="card-header">
-				<h3 th:text="#{puertas.lista.titulo}"></h3>
+				<h3>Lista de Puertas</h3>
+				<a th:href="@{logout}" class="btn btn-outline-danger">Log Out</a></td>
 			</div>
 			<div class="card-body">
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th th:text="#{puertas.puerta.id}"></th>
-							<th th:text="#{puertas.puerta.emailPropietario}"></th>
-							<th th:text="#{puertas.puerta.emailAdministrador}"></th>
-							<th th:text="#{puertas.puerta.ubicacion}"></th>
+							<th>Puerta Id</th>
+							<th>Email Propietario</th>
+							<th>Email Administrador</th>
+							<th>Ubicación</th>
 							<th>-</th>
 							<th>-</th>			
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="puerta: ${puertas}">
-							<td th:text="${puerta.idPuerta}"></td>
-							<td th:text="${puerta.emailPropietario}"></td>
-							<td th:text="${puerta.emailAdministrador}"></td>
-							<td th:text="${puerta.ubicacion}"></td>
-							<td><a th:href="@{editar/} + ${puerta.idPuerta}" th:text="#{puertas.acciones.editar}" class="btn btn-outline-primary"></a></td>
-							<td><a th:href="@{eliminar/} + ${puerta.idPuerta}" th:text="#{puertas.acciones.eliminar}" class="btn btn-outline-danger"></a></td>
+						<tr th:each="PUERTA: ${puertas}">
+							<td th:text="${PUERTA.idPuerta}"></td>
+							<td th:text="${PUERTA.emailPropietario}"></td>
+							<td th:text="${PUERTA.emailAdministrador}"></td>
+							<td th:text="${PUERTA.ubicacion}"></td>
+							<td><a th:href="@{editar/} + ${PUERTA.idPuerta}" class="btn btn-outline-primary">Editar</a></td>
+							<td><a th:href="@{eliminar/} + ${PUERTA.idPuerta}" class="btn btn-outline-danger">Eliminar</a></td>
 						</tr>
 					</tbody>
 					<tfoot>
 						<tr>
 							<td colspan="5">
-								<a th:href="@{crear}" class="btn btn-outline-primary btn-block" th:text="#{puertas.acciones.anadir}"></a>
+								<a th:href="@{crear}" class="btn btn-outline-primary btn-block" >Añadir</a>
 							</td>
 						</tr>
 					</tfoot>
@@ -44,6 +44,5 @@
 			</div>
 		</div>
 	</div>
-	<footer th:replace="layouts/base::footer(dark)"></footer>
 </body>
 </html>

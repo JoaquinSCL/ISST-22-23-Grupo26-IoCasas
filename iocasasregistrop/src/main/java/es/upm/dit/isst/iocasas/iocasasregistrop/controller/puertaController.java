@@ -70,6 +70,7 @@ public class puertaController {
                         }
                         //lista = Arrays.asList(restTemplate.getForEntity(LISTAPUERTAS_STRING + principal.getName(), Puerta[].class).getBody());
                         model.addAttribute("puertas", lista);
+                        System.out.println(lista);
                         return VISTA_LISTA; //vista que devuelve la informacion
                 }
         }
