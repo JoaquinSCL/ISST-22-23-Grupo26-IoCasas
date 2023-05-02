@@ -90,7 +90,7 @@ public class reservaController {
 /*                 if (principal == null || ! principal.getName().equals(id))
                         return "redirect:/" + VISTA_LISTA; */
                 Reserva reserva = null;   
-                try { Reserva = restTemplate.getForObject(RESERVACONTROLAR_STRING + id, Reserva.class);
+                try { reserva = restTemplate.getForObject(RESERVACONTROLAR_STRING + id, Reserva.class);
                 } catch (HttpClientErrorException.NotFound ex) {}
                 model.put("reserva", reserva);
                 model.put("accion", "../actualizar");

@@ -1,13 +1,8 @@
-package es.upm.dit.isst.iocasasapi.model;
+package es.upm.dit.isst.iocasas.iocasasregistror.model;
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 public class Reserva{
 
-    @Id
     private Long idReserva;
     private Long idPuerta;
     private String emailInquilino;

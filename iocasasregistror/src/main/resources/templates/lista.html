@@ -16,22 +16,27 @@
 					<thead>
 						<tr>
 							<th>Reserva Id</th>
+							<th>Puerta Id</th>
 							<th>Email Inquilino</th>
 							<th>Email Propietario</th>
 							<th>Email Administrador</th>
-							<th>Ubicación</th>
+							<th>Fecha Entrada</th>
+							<th>Fecha Salida</th>
 							<th>-</th>
 							<th>-</th>			
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="PUERTA: ${puertas}">
-							<td th:text="${PUERTA.idPuerta}"></td>
-							<td th:text="${PUERTA.emailPropietario}"></td>
-							<td th:text="${PUERTA.emailAdministrador}"></td>
-							<td th:text="${PUERTA.ubicacion}"></td>
-							<td><a th:href="@{editar/} + ${PUERTA.idPuerta}" class="btn btn-outline-primary">Editar</a></td>
-							<td><a th:href="@{eliminar/} + ${PUERTA.idPuerta}" class="btn btn-outline-danger">Eliminar</a></td>
+						<tr th:each="reserva: ${reservas}">
+							<td th:text="${reserva.idReserva}"></td>
+							<td th:text="${reserva.idPuerta}"></td>
+							<td th:text="${reserva.emailInquilino}"></td>
+							<td th:text="${reserva.emailPropietario}"></td>
+							<td th:text="${reserva.emailAdministrador}"></td>
+							<td th:text="${reserva.entrada}"></td>
+							<td th:text="${reserva.salida}"></td>
+							<td><a th:href="@{editar/} + ${reserva.idReserva}" class="btn btn-outline-primary">Editar</a></td>
+							<td><a th:href="@{eliminar/} + ${reserva.idReserva}" class="btn btn-outline-danger">Eliminar</a></td>
 						</tr>
 					</tbody>
 					<tfoot>
