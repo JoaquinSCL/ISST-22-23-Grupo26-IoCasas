@@ -34,12 +34,7 @@ public class PuertaController {
     @GetMapping("/puertas/{emailPropietario}")
     public List<Puerta> getReservasPorUsuario(@PathVariable String emailPropietario) {
         List<Puerta> puertas = puertaRepository.findByEmailPropietario(emailPropietario);
-        if (puertas.isEmpty()) {
-            throw new RuntimeException("El usuario no tiene puertas");
-        }
-        else{
-            return puertas;
-        }
+        return puertas;
         
     }
 
@@ -47,7 +42,7 @@ public class PuertaController {
     public Puerta getReservasPorUsuario(@PathVariable Long idPuerta) {
         Puerta puerta = puertaRepository.findByIdPuerta(idPuerta);
         if (puerta == null) {
-            throw new RuntimeException("El usuario no tiene reservas");
+            throw new RuntimeException("El usuario no tiene puertas");
         }
         return puerta;
     }

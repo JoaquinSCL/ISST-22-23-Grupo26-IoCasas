@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts/base::head(dark)">
+	<meta charset="UTF-8"/>
+</head>
+<body>
+
+	<div class="container">
+		<div class="card bg-dark">
+			<div class="card-header">
+				<h3>Lista de Reservas</h3>
+				<a th:href="@{logout}" class="btn btn-outline-danger">Log Out</a></td>
+			</div>
+			<div class="card-body">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Reserva Id</th>
+							<th>Email Inquilino</th>
+							<th>Email Propietario</th>
+							<th>Email Administrador</th>
+							<th>Ubicación</th>
+							<th>-</th>
+							<th>-</th>			
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="PUERTA: ${puertas}">
+							<td th:text="${PUERTA.idPuerta}"></td>
+							<td th:text="${PUERTA.emailPropietario}"></td>
+							<td th:text="${PUERTA.emailAdministrador}"></td>
+							<td th:text="${PUERTA.ubicacion}"></td>
+							<td><a th:href="@{editar/} + ${PUERTA.idPuerta}" class="btn btn-outline-primary">Editar</a></td>
+							<td><a th:href="@{eliminar/} + ${PUERTA.idPuerta}" class="btn btn-outline-danger">Eliminar</a></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="5">
+								<a th:href="@{crear}" class="btn btn-outline-primary btn-block" >Añadir</a>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -57,22 +57,12 @@ public class puertaController {
                         return VISTA_LISTA;
                 }
                 else{
-                        try {
-                                lista = Arrays.asList(restTemplate.getForEntity(LISTAPUERTAS_STRING + principal.getName(), Puerta[].class).getBody());
-                            } catch (HttpClientErrorException e) {
-                                if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
-                                    // si se produce un error 404, devolver una lista vacía
-                                    lista = new ArrayList<Puerta>();
-                                } else {
-                                    // si se produce un error diferente, relanzar la excepción
-                                    throw e;
-                                }
-                        }
+                lista = Arrays.asList(restTemplate.getForEntity(LISTAPUERTAS_STRING + principal.getName(), Puerta[].class).getBody());
                         //lista = Arrays.asList(restTemplate.getForEntity(LISTAPUERTAS_STRING + principal.getName(), Puerta[].class).getBody());
                         model.addAttribute("puertas", lista);
-                        System.out.println(lista);
-                        return VISTA_LISTA; //vista que devuelve la informacion
+                         //vista que devuelve la informacion
                 }
+                return VISTA_LISTA;
         }
 
         /* @GetMapping("/lista")
@@ -110,9 +100,9 @@ public class puertaController {
          @GetMapping("/editar/{id}")
         public String editar(@PathVariable(value = "id") String id,
                    Map<String, Object> model, Principal principal) {
-                if (principal == null || ! principal.getName().equals(id))
-                        return "redirect:/" + VISTA_LISTA;
-                Puerta Puerta = null;
+/*                 if (principal == null || ! principal.getName().equals(id))
+                        return "redirect:/" + VISTA_LISTA; */
+                Puerta Puerta = null;   
                 try { Puerta = restTemplate.getForObject(PUERTACONTROLAR_STRING + id, Puerta.class);
                 } catch (HttpClientErrorException.NotFound ex) {}
                 model.put("puerta", Puerta);

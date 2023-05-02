@@ -17,13 +17,6 @@
 				<form th:action="@{${accion}}" th:object="${puerta}" method="post">
 		
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Puerta Id</label>
-						<div class="col-sm-6">
-							<input type="number" th:field="*{idPuerta}" required="${true}">
-							<small class="form-text text-danger" th:if="${#fields.hasErrors('idPuerta')}" th:errors="*{idPuerta}"></small>
-						</div>
-					</div>
-					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Email Propietario</label>
 						<div class="col-sm-6">
 							<input type="text" th:field="*{emailPropietario}" required="${true}">

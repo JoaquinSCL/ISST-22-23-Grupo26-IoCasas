@@ -11,21 +11,21 @@ public class Reserva{
     private Long idReserva;
     private Long idPuerta;
     private String emailInquilino;
-    private Long idPropietario;
-    private Long idAdministrador;
+    private String emailPropietario;
+    private String emailAdministrador;
     private Date entrada;
     private Date salida;
 
     public Reserva() {
     }
 
-    public Reserva(Long idReserva, Long idPuerta, String emailInquilino, Long idPropietario, Long idAdministrador,
-            Date entrada, Date salida) {
+    public Reserva(Long idReserva, Long idPuerta, String emailInquilino, String emailPropietario,
+            String emailAdministrador, Date entrada, Date salida) {
         this.idReserva = idReserva;
         this.idPuerta = idPuerta;
         this.emailInquilino = emailInquilino;
-        this.idPropietario = idPropietario;
-        this.idAdministrador = idAdministrador;
+        this.emailPropietario = emailPropietario;
+        this.emailAdministrador = emailAdministrador;
         this.entrada = entrada;
         this.salida = salida;
     }
@@ -54,20 +54,20 @@ public class Reserva{
         this.emailInquilino = emailInquilino;
     }
 
-    public Long getIdPropietario() {
-        return idPropietario;
+    public String getEmailPropietario() {
+        return emailPropietario;
     }
 
-    public void setIdPropietario(Long idPropietario) {
-        this.idPropietario = idPropietario;
+    public void setEmailPropietario(String emailPropietario) {
+        this.emailPropietario = emailPropietario;
     }
 
-    public Long getIdAdministrador() {
-        return idAdministrador;
+    public String getEmailAdministrador() {
+        return emailAdministrador;
     }
 
-    public void setIdAdministrador(Long idAdministrador) {
-        this.idAdministrador = idAdministrador;
+    public void setEmailAdministrador(String emailAdministrador) {
+        this.emailAdministrador = emailAdministrador;
     }
 
     public Date getEntrada() {
@@ -93,8 +93,8 @@ public class Reserva{
         result = prime * result + ((idReserva == null) ? 0 : idReserva.hashCode());
         result = prime * result + ((idPuerta == null) ? 0 : idPuerta.hashCode());
         result = prime * result + ((emailInquilino == null) ? 0 : emailInquilino.hashCode());
-        result = prime * result + ((idPropietario == null) ? 0 : idPropietario.hashCode());
-        result = prime * result + ((idAdministrador == null) ? 0 : idAdministrador.hashCode());
+        result = prime * result + ((emailPropietario == null) ? 0 : emailPropietario.hashCode());
+        result = prime * result + ((emailAdministrador == null) ? 0 : emailAdministrador.hashCode());
         result = prime * result + ((entrada == null) ? 0 : entrada.hashCode());
         result = prime * result + ((salida == null) ? 0 : salida.hashCode());
         return result;
@@ -124,15 +124,15 @@ public class Reserva{
                 return false;
         } else if (!emailInquilino.equals(other.emailInquilino))
             return false;
-        if (idPropietario == null) {
-            if (other.idPropietario != null)
+        if (emailPropietario == null) {
+            if (other.emailPropietario != null)
                 return false;
-        } else if (!idPropietario.equals(other.idPropietario))
+        } else if (!emailPropietario.equals(other.emailPropietario))
             return false;
-        if (idAdministrador == null) {
-            if (other.idAdministrador != null)
+        if (emailAdministrador == null) {
+            if (other.emailAdministrador != null)
                 return false;
-        } else if (!idAdministrador.equals(other.idAdministrador))
+        } else if (!emailAdministrador.equals(other.emailAdministrador))
             return false;
         if (entrada == null) {
             if (other.entrada != null)
@@ -146,10 +146,5 @@ public class Reserva{
             return false;
         return true;
     }
-
-    
-
-
-    
     
 }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts/base::head(dark)">
+	<meta charset="UTF-8">
+</head>
+<body>
+	
+	
+	<div class="container">
+		<div class="card bg-dark">
+			<div class="card-header">
+				<h3 th:text="${accion} == 'guardar' ? 'Nueva Puerta' : 'Editar Puerta'"></h3>
+				<a th:href="@{logout}" class="btn btn-outline-danger">Log Out</a></td>
+			</div>
+			<div class="card-body">
+				 
+				<form th:action="@{${accion}}" th:object="${puerta}" method="post">
+		
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Email Propietario</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{emailPropietario}" required="${true}">
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('emailPropietario')}" th:errors="*{emailPropietario}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Email Administrador</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{emailAdministrador}">
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('emailAdministrador')}" th:errors="*{emailAdministrador}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Key</label>
+						<div class="col-sm-6">
+							<input type="number" th:field="*{key}" required="${true}">
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('key')}" th:errors="*{key}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Ubicación</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{ubicacion}">
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('ubicacion')}" th:errors="*{ubicacion}"></small>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-6">
+							<input type="submit" value="Guardar" class="btn btn-outline-primary">
+							<a th:href="@{${accion} == 'guardar' OR ${#fields.hasErrors('*')} ? 'lista' : '../lista'}" class="btn btn-outline-danger">Cancelar</a>
+							<!-- a th:href="@{${accion} == 'guardar' OR ${#fields.hasErrors('*')} ? 'lista' : '../lista'}" class="btn btn-outline-danger" th:text="#{tfgs.acciones.cancelar}"></a-->
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
