@@ -75,6 +75,25 @@ public class reservaController {
         } 
 
         @PostMapping("/guardar")
+        public String guardar(@Validated Reserva reserva, BindingResult result,
+                       @RequestParam("entradaString") String entradaString,
+                       @RequestParam("salidaString") String salidaString) throws ParseException {
+                if (result.hasErrors()) {
+                        return VISTA_FORMULARIO;
+                }
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+                Date entrada = format.parse(entradaString);
+                reserva.setEntrada(entrada);
+                Date salida = format.parse(salidaString);
+                reserva.setSalida(salida);
+                try { 
+                        restTemplate.postForObject(RESERVAGUARDAR_STRING, reserva, Reserva.class);
+                } catch(Exception e) {}
+                return "redirect:" + VISTA_LISTA;
+        }
+
+
+/*         @PostMapping("/guardar")
         public String guardar(@Validated Reserva reserva, BindingResult result) {
                 if (result.hasErrors()) {
                         return VISTA_FORMULARIO;
@@ -82,22 +101,57 @@ public class reservaController {
                 try { restTemplate.postForObject(RESERVAGUARDAR_STRING, reserva, Reserva.class);
                 } catch(Exception e) {}
                 return "redirect:" + VISTA_LISTA;
+        } */
+
+        @GetMapping("/editar/{id}")
+        public String editar(@PathVariable(value = "id") String id,
+           Map<String, Object> model, Principal principal) {
+                Reserva reserva = null;   
+                try { 
+                        reserva = restTemplate.getForObject(RESERVACONTROLAR_STRING + id, Reserva.class);
+                } catch (HttpClientErrorException.NotFound ex) {}
+
+                // Formatea la fecha en un formato legible
+                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                String entradaString = dateFormat.format(reserva.getEntrada());
+
+                model.put("reserva", reserva);
+                model.put("entradaString", entradaString);
+                model.put("accion", "../actualizar");
+                return reserva != null ? VISTA_FORMULARIO : "redirect:/" + VISTA_LISTA;
         }
 
-         @GetMapping("/editar/{id}")
+         /* @GetMapping("/editar/{id}")
         public String editar(@PathVariable(value = "id") String id,
                    Map<String, Object> model, Principal principal) {
-/*                 if (principal == null || ! principal.getName().equals(id))
-                        return "redirect:/" + VISTA_LISTA; */
+                 if (principal == null || ! principal.getName().equals(id))
+                        return "redirect:/" + VISTA_LISTA; 
                 Reserva reserva = null;   
                 try { reserva = restTemplate.getForObject(RESERVACONTROLAR_STRING + id, Reserva.class);
                 } catch (HttpClientErrorException.NotFound ex) {}
                 model.put("reserva", reserva);
                 model.put("accion", "../actualizar");
                 return reserva != null ? VISTA_FORMULARIO : "redirect:/" + VISTA_LISTA;
+        } */
+        @PostMapping("/actualizar")
+        public String actualizar(@Validated Reserva Reserva, BindingResult result,
+                           @RequestParam("entradaString") String entradaString,
+                           @RequestParam("salidaString") String salidaString) throws ParseException {
+                if (result.hasErrors()) {
+                        return VISTA_FORMULARIO;
+                }
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+                Date entrada = format.parse(entradaString);
+                Reserva.setEntrada(entrada);
+                Date salida = format.parse(salidaString);
+                Reserva.setSalida(salida);
+                try { 
+                        restTemplate.put(RESERVACONTROLAR_STRING + Reserva.getIdReserva(), Reserva, Reserva.class);
+                } catch(Exception e) {}
+                return "redirect:" + VISTA_LISTA;
         }
 
-        @PostMapping("/actualizar")
+        /* @PostMapping("/actualizar")
         public String actualizar(@Validated Reserva Reserva, BindingResult result) {
                 if (result.hasErrors()) {
                         return VISTA_FORMULARIO;
@@ -106,7 +160,7 @@ public class reservaController {
                            Reserva, Reserva.class);
                 } catch(Exception e) {}
                 return "redirect:" + VISTA_LISTA;
-        }
+        } */
 
         @GetMapping("/eliminar/{id}")
         public String eliminar(@PathVariable(value = "id") String id) {
