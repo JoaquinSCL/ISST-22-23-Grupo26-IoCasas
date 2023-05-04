@@ -84,8 +84,6 @@ public class reservaController {
 
          @GetMapping("/editar/{id}")
         public String editar(@PathVariable(value = "id") String id, Map<String, Object> model, Principal principal) {
-                 if (principal == null || ! principal.getName().equals(id))
-                        return "redirect:/" + VISTA_LISTA; 
                 reserva reserva = new reserva();
                 reservaWeb reservafinal = new reservaWeb();  
                 try { reserva = restTemplate.getForObject(RESERVACONTROLAR_STRING + id, reserva.class);
