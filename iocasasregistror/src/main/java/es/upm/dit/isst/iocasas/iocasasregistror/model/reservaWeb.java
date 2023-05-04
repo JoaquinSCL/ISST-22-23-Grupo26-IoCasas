@@ -1,23 +1,26 @@
 package es.upm.dit.isst.iocasas.iocasasregistror.model;
-import java.util.Date;
-import java.text.SimpleDateFormat;
-import es.upm.dit.isst.iocasas.iocasasregistror.model.reserva;
 
-public class reserva{
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import es.upm.dit.isst.iocasas.iocasasregistror.model.reservaWeb;
+
+public class reservaWeb {
 
     private Long idReserva;
     private Long idPuerta;
     private String emailInquilino;
     private String emailPropietario;
     private String emailAdministrador;
-    private Date entrada;
-    private Date salida;
+    private String entrada;
+    private String salida;
 
-    public reserva() {
+    public reservaWeb() {
     }
 
-    public reserva(Long idReserva, Long idPuerta, String emailInquilino, String emailPropietario,
-            String emailAdministrador, Date entrada, Date salida) {
+    public reservaWeb(Long idReserva, Long idPuerta, String emailInquilino, String emailPropietario,
+            String emailAdministrador, String entrada, String salida) {
         this.idReserva = idReserva;
         this.idPuerta = idPuerta;
         this.emailInquilino = emailInquilino;
@@ -67,19 +70,19 @@ public class reserva{
         this.emailAdministrador = emailAdministrador;
     }
 
-    public Date getEntrada() {
+    public String getEntrada() {
         return entrada;
     }
 
-    public void setEntrada(Date entrada) {
+    public void setEntrada(String entrada) {
         this.entrada = entrada;
     }
 
-    public Date getSalida() {
+    public String getSalida() {
         return salida;
     }
 
-    public void setSalida(Date salida) {
+    public void setSalida(String salida) {
         this.salida = salida;
     }
 
@@ -105,7 +108,7 @@ public class reserva{
             return false;
         if (getClass() != obj.getClass())
             return false;
-        reserva other = (reserva) obj;
+        reservaWeb other = (reservaWeb) obj;
         if (idReserva == null) {
             if (other.idReserva != null)
                 return false;
@@ -144,16 +147,18 @@ public class reserva{
         return true;
     }
     
-    public reservaWeb toReservaWeb() {
+    public reserva toReserva() throws ParseException {
         SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
-        reservaWeb reservaWeb = new reservaWeb();
-        reservaWeb.setIdReserva(idReserva);
-        reservaWeb.setIdPuerta(idPuerta);
-        reservaWeb.setEmailInquilino(emailInquilino);
-        reservaWeb.setEmailPropietario(emailPropietario);
-        reservaWeb.setEmailAdministrador(emailAdministrador);
-        reservaWeb.setEntrada(formatoFecha.format(entrada)); //suponiendo que formatoFecha es una instancia de SimpleDateFormat
-        reservaWeb.setSalida(formatoFecha.format(salida));
-        return reservaWeb;
+        reserva reserva = new reserva();
+        reserva.setIdReserva(idReserva);
+        reserva.setIdPuerta(idPuerta);
+        reserva.setEmailInquilino(emailInquilino);
+        reserva.setEmailPropietario(emailPropietario);
+        reserva.setEmailAdministrador(emailAdministrador);
+        reserva.setEntrada(formatoFecha.parse(entrada)); //suponiendo que formatoFecha es una instancia de SimpleDateFormat
+        reserva.setSalida(formatoFecha.parse(salida));
+        return reserva;
     }
+    
+    
 }

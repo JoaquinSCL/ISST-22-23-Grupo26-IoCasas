@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layouts/base::head(dark)">
+<head th:replace="layouts/base::head(light)">
 	<meta charset="UTF-8">
 </head>
 <body>
 	
 	
 	<div class="container">
-		<div class="card bg-dark">
+		<div class="card bg-light">
 			<div class="card-header">
 				<h3 th:text="${accion} == 'guardar' ? 'Nueva Puerta' : 'Editar Puerta'"></h3>
 				<a th:href="@{logout}" class="btn btn-outline-danger">Log Out</a></td>
@@ -15,7 +15,13 @@
 			<div class="card-body">
 				 
 				<form th:action="@{${accion}}" th:object="${puerta}" method="post">
-		
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">ID Puerta</label>
+						<div class="col-sm-6">
+							<input type="number" th:field="*{idPuerta}" required="${true}">
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('idPuerta')}" th:errors="*{idPuerta}"></small>
+						</div>
+					</div>
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Email Propietario</label>
 						<div class="col-sm-6">

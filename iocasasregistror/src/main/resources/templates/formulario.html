@@ -16,6 +16,13 @@
 				 
 				<form th:action="@{${accion}}" th:object="${reserva}" method="post">
 					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">ID Reserva</label>
+						<div class="col-sm-6">
+							<input type="number" th:field="*{idReserva}" required="${true}">
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('idReserva')}" th:errors="*{idReserva}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">ID Puerta</label>
 						<div class="col-sm-6">
 							<input type="number" th:field="*{idPuerta}" required="${true}">
