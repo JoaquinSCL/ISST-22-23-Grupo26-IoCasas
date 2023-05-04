@@ -79,7 +79,7 @@ function App() {
   useEffect(() => {
     async function fetchReservas() {
       const response = await fetch(
-        "http://localhost:8083/reservas/email@example.com"
+        "http://localhost:8083/reservasinq/${datos.username}"
       );
       const data = await response.json();
       setReservas(data);
