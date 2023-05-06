@@ -50,18 +50,20 @@ return (
         <h3>Lista de reservas</h3>
         <Table>
           <tbody>
-          {props.reservas.map((reserva) => (
-            <tr key={reserva.idReserva}>
-              <td>{reserva.idReserva}</td>
-              <td>{new Date(reserva.entrada).toLocaleString()}</td>
-              <td>{new Date(reserva.salida).toLocaleString()}</td>
-              <td><button class='botonLog' onClick={() => getAccessCode(reserva.idReserva, props.datos.email)}>Obtener acceso</button>
-              <td><Bluetooth/></td>
-              </td>
-            </tr>
-          ))}
+            {props.reservas.length > 0 ? (
+              props.reservas.map((reserva) => (
+                <tr key={reserva.idReserva}>
+                  <td>{reserva.idReserva}</td>
+                  <td>{new Date(reserva.entrada).toLocaleString()}</td>
+                  <td>{new Date(reserva.salida).toLocaleString()}</td>
+                  <td><button class='botonLog' onClick={() => getAccessCode(reserva.idReserva, props.datos.username)}>Obtener acceso</button></td>
+                  <td><Bluetooth /></td>
+                </tr>
+              ))
+            ) : null}
           </tbody>
         </Table>
+
         </div> 
       </main>
   </div>

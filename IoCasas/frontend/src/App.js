@@ -77,15 +77,16 @@ function App() {
   const [reservas, setReservas] = useState([]);
 
   useEffect(() => {
+    console.log(datos);
+    const url = `http://localhost:8083/reservasinq/${datos.username}`;
+    console.log(url);
     async function fetchReservas() {
-      const response = await fetch(
-        "http://localhost:8083/reservasinq/${datos.username}"
-      );
+      const response = await fetch(url);
       const data = await response.json();
       setReservas(data);
     }
     fetchReservas();
-  }, []);
+  }, [datos.username, isLoggedIn]);
 
   return(
     <div>
