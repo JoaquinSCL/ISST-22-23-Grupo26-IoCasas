@@ -1,0 +1,895 @@
+{
+	"id": "97888454-8c54-4b40-a360-2901c730b48d",
+	"name": "IoCasas",
+	"timestamp": "2023-05-09T08:39:13.237Z",
+	"collection_id": "0-db4485f2-1907-420a-9040-5315afe63788",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 67,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "fd8ae918-d221-49c7-b603-55c5a652a37b",
+			"name": "crearPuerta",
+			"url": "http://localhost:8083/newpuerta",
+			"time": 278,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				278
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "6f480789-2ef3-422b-9801-85fb4b75aabf",
+			"name": "PuertaPropietario",
+			"url": "http://localhost:8083/puertas/prop1@email.com",
+			"time": 159,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Test id puerta": true,
+				"Test email admin": true,
+				"Test key puerta": true,
+				"Test ubicacion puerta": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test id puerta": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test email admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test key puerta": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test ubicacion puerta": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				159
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Test id puerta": true,
+					"Test email admin": true,
+					"Test key puerta": true,
+					"Test ubicacion puerta": true
+				}
+			]
+		},
+		{
+			"id": "12c46f17-a782-4542-8896-c64853ac0ee5",
+			"name": "PuertaID",
+			"url": "http://localhost:8083/puerta/1",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Test email propietario": true,
+				"Test email admin": true,
+				"Test key puerta": true,
+				"Test ubicacion puerta": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test email propietario": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test email admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test key puerta": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test ubicacion puerta": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Test email propietario": true,
+					"Test email admin": true,
+					"Test key puerta": true,
+					"Test ubicacion puerta": true
+				}
+			]
+		},
+		{
+			"id": "3fad05d9-1b10-4877-b64f-93381b977971",
+			"name": "editPuerta",
+			"url": "http://localhost:8083/puerta/1",
+			"time": 26,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				26
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "63c2e5a7-c96a-4129-bb62-4a24eb37694e",
+			"name": "PuertaPropietario2",
+			"url": "http://localhost:8083/puertas/prop1@email.com",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Test id puerta": true,
+				"Test email admin": true,
+				"Test key puerta": true,
+				"Test ubicacion puerta": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test id puerta": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test email admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test key puerta": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test ubicacion puerta": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Test id puerta": true,
+					"Test email admin": true,
+					"Test key puerta": true,
+					"Test ubicacion puerta": true
+				}
+			]
+		},
+		{
+			"id": "7f68de7e-0fad-4108-a4f8-e8abeca57a89",
+			"name": "PuertaID2",
+			"url": "http://localhost:8083/puerta/1",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Test email propietario": true,
+				"Test email admin": true,
+				"Test key puerta": true,
+				"Test ubicacion puerta": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test email propietario": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test email admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test key puerta": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test ubicacion puerta": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Test email propietario": true,
+					"Test email admin": true,
+					"Test key puerta": true,
+					"Test ubicacion puerta": true
+				}
+			]
+		},
+		{
+			"id": "2e1c4f79-4571-4be4-818a-b9c45e55dcac",
+			"name": "DeletePuerta",
+			"url": "http://localhost:8083/puerta/1",
+			"time": 26,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				26
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "ffe94b25-7717-4715-8662-53b67316890c",
+			"name": "crearReserva",
+			"url": "http://localhost:8083/newreservas",
+			"time": 35,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				35
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "98469a34-e1f2-47f6-81df-409e871ee5d2",
+			"name": "crearReservafechatarde",
+			"url": "http://localhost:8083/newreservas",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "fc5d8c8e-7db1-4441-a46d-db97e996e79e",
+			"name": "crearPuerta",
+			"url": "http://localhost:8083/newpuerta",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "cd38e0d6-2aa6-4298-98df-96890f92c2a4",
+			"name": "keyFromReserva",
+			"url": "http://localhost:8083/api/1/acceso",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Test key puerta from reserva": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test key puerta from reserva": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Test key puerta from reserva": true
+				}
+			]
+		},
+		{
+			"id": "880cec25-a71c-4a8f-b86e-c28ab646748c",
+			"name": "keyFromReservatarde",
+			"url": "http://localhost:8083/api/1/acceso",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Test key puerta from reserva": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test key puerta from reserva": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Test key puerta from reserva": true
+				}
+			]
+		},
+		{
+			"id": "86a6010b-6852-43ca-9db6-075443dcd8c0",
+			"name": "reservasInquilino",
+			"url": "http://localhost:8083/reservasinq/inq1@email.com",
+			"time": 16,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Test id reserva": true,
+				"Test id puerta": true,
+				"Test email prop": true,
+				"Test email admin": true,
+				"Test fecha entrada": true,
+				"Test fecha salida": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test id reserva": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test id puerta": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test email prop": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test email admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test fecha entrada": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test fecha salida": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Test id reserva": true,
+					"Test id puerta": true,
+					"Test email prop": true,
+					"Test email admin": true,
+					"Test fecha entrada": true,
+					"Test fecha salida": true
+				}
+			]
+		},
+		{
+			"id": "0fd519d8-6fdf-4f10-a292-2b2ef6fcd587",
+			"name": "reservasPropietario",
+			"url": "http://localhost:8083/reservasprop/prop1@email.com",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Test id reserva": true,
+				"Test id puerta": true,
+				"Test email inquilino": true,
+				"Test email admin": true,
+				"Test fecha entrada": true,
+				"Test fecha salida": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test id reserva": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test id puerta": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test email inquilino": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test email admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test fecha entrada": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test fecha salida": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Test id reserva": true,
+					"Test id puerta": true,
+					"Test email inquilino": true,
+					"Test email admin": true,
+					"Test fecha entrada": true,
+					"Test fecha salida": true
+				}
+			]
+		},
+		{
+			"id": "91aad8ff-1266-4245-818d-c16a3d3515d8",
+			"name": "reservasAdmin",
+			"url": "http://localhost:8083/reservasadmin/admin1@email.com",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Test id reserva": true,
+				"Test id puerta": true,
+				"Test email inquilino": true,
+				"Test email prop": true,
+				"Test fecha entrada": true,
+				"Test fecha salida": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test id reserva": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test id puerta": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test email inquilino": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test email prop": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test fecha entrada": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test fecha salida": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Test id reserva": true,
+					"Test id puerta": true,
+					"Test email inquilino": true,
+					"Test email prop": true,
+					"Test fecha entrada": true,
+					"Test fecha salida": true
+				}
+			]
+		},
+		{
+			"id": "2577a047-328d-432c-938a-881fc0884d5e",
+			"name": "reservaID",
+			"url": "http://localhost:8083/reserva/1",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Test id puerta": true,
+				"Test email inquilino": true,
+				"Test email prop": true,
+				"Test email admin": true,
+				"Test fecha entrada": true,
+				"Test fecha salida": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test id puerta": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test email inquilino": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test email prop": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test email admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test fecha entrada": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test fecha salida": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Test id puerta": true,
+					"Test email inquilino": true,
+					"Test email prop": true,
+					"Test email admin": true,
+					"Test fecha entrada": true,
+					"Test fecha salida": true
+				}
+			]
+		},
+		{
+			"id": "35d291af-6dae-4d9c-a705-7cbc2149ac3a",
+			"name": "editarReserva",
+			"url": "http://localhost:8083/reserva/1",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "c612f1e2-9083-412b-8dbd-2ff0983393fc",
+			"name": "reservaID",
+			"url": "http://localhost:8083/reserva/1",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Test id puerta": true,
+				"Test email inquilino": true,
+				"Test email prop": true,
+				"Test email admin": true,
+				"Test fecha entrada": true,
+				"Test fecha salida": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test id puerta": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test email inquilino": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test email prop": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test email admin": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test fecha entrada": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test fecha salida": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Test id puerta": true,
+					"Test email inquilino": true,
+					"Test email prop": true,
+					"Test email admin": true,
+					"Test fecha entrada": true,
+					"Test fecha salida": true
+				}
+			]
+		},
+		{
+			"id": "264a6404-e468-434a-8b8b-f54e6f21e8c3",
+			"name": "New Request",
+			"url": "http://localhost:8083/reserva/1",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 662,
+	"collection": {
+		"requests": [
+			{
+				"id": "fd8ae918-d221-49c7-b603-55c5a652a37b",
+				"method": "POST"
+			},
+			{
+				"id": "6f480789-2ef3-422b-9801-85fb4b75aabf",
+				"method": "GET"
+			},
+			{
+				"id": "12c46f17-a782-4542-8896-c64853ac0ee5",
+				"method": "GET"
+			},
+			{
+				"id": "3fad05d9-1b10-4877-b64f-93381b977971",
+				"method": "PUT"
+			},
+			{
+				"id": "63c2e5a7-c96a-4129-bb62-4a24eb37694e",
+				"method": "GET"
+			},
+			{
+				"id": "7f68de7e-0fad-4108-a4f8-e8abeca57a89",
+				"method": "GET"
+			},
+			{
+				"id": "2e1c4f79-4571-4be4-818a-b9c45e55dcac",
+				"method": "DELETE"
+			},
+			{
+				"id": "ffe94b25-7717-4715-8662-53b67316890c",
+				"method": "POST"
+			},
+			{
+				"id": "98469a34-e1f2-47f6-81df-409e871ee5d2",
+				"method": "POST"
+			},
+			{
+				"id": "fc5d8c8e-7db1-4441-a46d-db97e996e79e",
+				"method": "POST"
+			},
+			{
+				"id": "cd38e0d6-2aa6-4298-98df-96890f92c2a4",
+				"method": "GET"
+			},
+			{
+				"id": "880cec25-a71c-4a8f-b86e-c28ab646748c",
+				"method": "GET"
+			},
+			{
+				"id": "86a6010b-6852-43ca-9db6-075443dcd8c0",
+				"method": "GET"
+			},
+			{
+				"id": "0fd519d8-6fdf-4f10-a292-2b2ef6fcd587",
+				"method": "GET"
+			},
+			{
+				"id": "91aad8ff-1266-4245-818d-c16a3d3515d8",
+				"method": "GET"
+			},
+			{
+				"id": "2577a047-328d-432c-938a-881fc0884d5e",
+				"method": "GET"
+			},
+			{
+				"id": "35d291af-6dae-4d9c-a705-7cbc2149ac3a",
+				"method": "PUT"
+			},
+			{
+				"id": "c612f1e2-9083-412b-8dbd-2ff0983393fc",
+				"method": "GET"
+			},
+			{
+				"id": "264a6404-e468-434a-8b8b-f54e6f21e8c3",
+				"method": "DELETE"
+			}
+		]
+	}
+}
